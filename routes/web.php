@@ -19,14 +19,16 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api'], function () use ($router){
 
-    $router->post('register', 'AuthController@register');
     $router->post('login', 'AuthController@login');
 
 
-    /*
-     * Rotas Referente ao Usuario
-     */
 
+    ## Usuarios Rotas
+    $router->post('register', 'Usuarios@store');
     $router->get('usuario', 'Usuarios@getUsuario');
+
+    ## Configuracao Rotas
+    $router->post('usuario/configuracao', 'UsuariosConfiguracoes@store');
+    $router->get('usuario/configuracao', 'UsuariosConfiguracoes@get');
 
 });

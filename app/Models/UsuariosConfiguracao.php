@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class UsuariosConfiguracao extends Model
 {
     protected $table = 'usuarios_configuracoes';
+
+    protected $casts = [
+        'Configuracao' => 'array'
+    ];
+
+
 }

@@ -10,7 +10,9 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
+// use App\Models\
 use App\Models\UsuariosConfiguracao;
+use App\Models\UsuariosCiclos;
 
 // use Illuminate\Notifications\Notifiable;
 // use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -33,10 +35,17 @@ class Usuario extends Model implements AuthenticatableContract, AuthorizableCont
 
     protected $with = ['configuracao'];
 
+
     public function configuracao()
     {
         return $this->hasOne(UsuariosConfiguracao::class, 'Usuario_id');
     }
+
+    public function ciclos()
+    {
+        return $this->hasMany(UsuariosCiclos::class, 'Usuario_id');
+    }
+
 
 
 

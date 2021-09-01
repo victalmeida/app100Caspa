@@ -17,7 +17,7 @@ class UsuarioCiclo extends Migration
             $table->id();
             $table->foreignId('Usuario_id')->constrained('Usuarios');
             $table->foreignId('Ciclos_id')->constrained('Ciclos');
-            $table->enum('status', ['aberto', 'fechado']);
+            $table->enum('status', ['aberto', 'fechado', 'inativo']);
             $table->timestamps();
         });
     }
