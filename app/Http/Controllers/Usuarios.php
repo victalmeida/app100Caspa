@@ -16,7 +16,7 @@ class Usuarios extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['store']]);
+        $this->middleware('auth:api', ['except' => ['store', 'getUsuario']]);
     }
 
     /**
@@ -34,9 +34,9 @@ class Usuarios extends Controller
         $usuario = new Usuario();
         $usuario->email = $request->email;
         $usuario->password = Hash::make('100Caspa');
-        $usuario->Nome = $request->nome;
-        $usuario->Data_nascimento = $request->data_nascimento;
-        $usuario->Sexo = $request->sexo;
+        if($request->nome && !empty($request->nome) ) $usuario->Nome = $request->nome;
+        if($request->data_nascimento && !empty($request->data_nascimento)) $usuario->Data_nascimento = $request->data_nascimento;
+        if($request->sexo && !empty($request->sexo)) $usuario->Sexo = $request->sexo;
         $usuario->ativo = true;
         $usuario->save();
 

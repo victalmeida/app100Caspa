@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+    <style>
+      .monitor {
+        border-radius: 10px 10px 0px 0px;
+        height: 80vh;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(218, 218, 218);
+        -webkit-box-shadow: 0px 12px 15px 5px rgba(33, 33, 33, 0.47);
+        box-shadow: 0px 12px 15px 5px rgba(33, 33, 33, 0.47);
+      }
+      .context {
+        background: white;
+        width: 100%;
+        height: 90%;
+        padding: 10px;
+        overflow: auto;
+      }
+      .header {
+        height: 40px;
+        width: 100%;
+        border-radius: 10px 10px 0px 0px;
+        padding-left: 10px;
+        padding-right: 15px;
+      }
+
+      .circle {
+        height: 12px;
+        width: 12px;
+        border-radius: 15px;
+        margin-right: 10px;
+      }
+      .close {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .title {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3%;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: row-reverse;
+        height: 10%;
+        padding: 12px;
+        background-color: white;
+        border-top: solid rgb(230, 230, 230) 1px;
+      }
+    </style>
+
+    <title>Api 100-Caspa</title>
+  </head>
+  <body style="width: 100%">
+
+    <div class="content" style="height: 100vh">
+      <div class="title">
+        <h1>Console</h1>
+      </div>
+      <div class="monitor">
+        <div class="header d-flex justify-content-between align-items-center">
+          <div class="close">
+            <div class="circle bg-danger"></div>
+            <div class="circle bg-warning"></div>
+            <div class="circle bg-success"></div>
+          </div>
+        </div>
+        <div class="context" id="context">
+            <p><b> Server :</b> ON </p>
+        </div>
+        <div class="footer">
+          <!-- <button class="btn btn-primary" onclick="getEx2()">Iniciar</button> -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+    //   function getEx2() {
+    //     $.get("/exercicio2/list", function (data) {
+    //       $("#context").empty();
+    //       $("#context").append(data);
+    //       console.log("data : ", data);
+    //     });
+    //   }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
