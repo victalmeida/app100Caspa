@@ -27,6 +27,7 @@ class Usuarios extends Controller
 
     public function store(Request $request)
     {
+     
         $this->validate($request, [
             'email' => 'required|unique:Usuarios,email'
         ]);
@@ -37,6 +38,7 @@ class Usuarios extends Controller
         if($request->nome && !empty($request->nome) ) $usuario->Nome = $request->nome;
         if($request->data_nascimento && !empty($request->data_nascimento)) $usuario->Data_nascimento = $request->data_nascimento;
         if($request->sexo && !empty($request->sexo)) $usuario->Sexo = $request->sexo;
+        if($request->cpf && !empty($request->cpf)) $usuario->cpf = $request->cpf;
         $usuario->ativo = true;
         $usuario->save();
 
