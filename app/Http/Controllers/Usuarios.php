@@ -29,14 +29,15 @@ class Usuarios extends Controller
     {
      
         $this->validate($request, [
-            'email' => 'required|unique:Usuarios,email'
+            'email' => 'required|unique:Usuarios,email',
+            'cpf' => 'required|unique:Usuarios,cpf'
         ]);
 
         $usuario = new Usuario();
         $usuario->email = $request->email;
-        $usuario->password = Hash::make('100Caspa');
+        $usuario->password = Hash::make($request->cpf);
         if($request->nome && !empty($request->nome) ) $usuario->Nome = $request->nome;
-        if($request->data_nascimento && !empty($request->data_nascimento)) $usuario->Data_nascimento = $request->data_nascimento;
+        if($request->data_nascimento && !empty($request->data_nascimento)) $usuario->data_nascimento = (\DateTime::createFromFormat('d-m-Y', $request->data_nascimento))->format('Y-m-d');
         if($request->sexo && !empty($request->sexo)) $usuario->Sexo = $request->sexo;
         if($request->cpf && !empty($request->cpf)) $usuario->cpf = $request->cpf;
         $usuario->ativo = true;
@@ -55,7 +56,7 @@ class Usuarios extends Controller
     {
        $usuario = Usuario::where('email', $request->email)->first();
        if(!$usuario) return response()->json(['message' => 'Email não existente em nosso Banco de Dados'], 203);
-       return response()->json($usuario);
+       return response()->json();
     }
 
 

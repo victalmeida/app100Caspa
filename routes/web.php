@@ -22,7 +22,7 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api'], function () use ($router){
 
     $router->post('login', 'AuthController@login');
-
+    $router->post('logout', 'AuthController@logout');
 
 
     ## Usuarios Rotas
